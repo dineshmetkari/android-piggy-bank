@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PiggyBank</string>
+    <string name="total">Total</string>
+    <string name="current">Current</string>
+    <string name="set_text">Set</string>
+    <string name="clear_text">C</string>
+    
+    <string name="add_stuff_name_label_text">Name:</string>
+    <string name="add_stuff_name_hint">Enter name</string>
+    <string name="add_stuff_amount_label_text">Need to get:</string>
+    <string name="add_stuff_priority_label_text">Priority:</string>
+    <string name="add_stuff_note_label_text">Note:</string>
+    <string name="add_stuff_note_hint_text">Enter note.</string>
+    <string name="add_stuff_alert_title">Couldn\'t add stuff</string>
+    <string name="add_stuff_alert_message">Some data is unavailable or wrong. Couldn\'t add stuff.</string>
+        
+    <string-array name="priority_names">
+        <item>Highest</item>
+        <item>High</item>
+        <item>Middle</item>
+        <item>Low</item>
+        <item>Lowest</item>
+    </string-array>
+    
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    
+</resources>
