@@ -143,6 +143,7 @@ public class PiggyBankActivity extends Activity {
     			double value = PiggyBank.getInstance().getResourceValue(0);
     			value -= result.amount;
     			PiggyBank.getInstance().setResourceValueWithoutProgressChanging(0, value);
+    			// TODO Need to ask user: Do you want to substruct amount of wish from total amount?
     		}
     	}
     }
