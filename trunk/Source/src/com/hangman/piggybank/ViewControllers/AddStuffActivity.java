@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -60,6 +59,11 @@ public class AddStuffActivity extends Activity {
 	
 	double _amount = 0.0;
 	
+	/**
+	 * Class for transferring user wish to parent activity.
+	 * It doesn't contain wish id. 
+	 * @author pavel.todorov
+	 */
 	public static class AddStuffActivityResult implements Serializable {
 		private static final long serialVersionUID = -3695736214848989515L;
 
@@ -74,28 +78,11 @@ public class AddStuffActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.add_desired_stuff_layout);
-    
-        /// Determining that mode for add stuff activity now.
-        _key = getIntent().getIntExtra(ChangeStuffActivityWishIdOptionKey, -1);
-        if(_key != -1) {
-        	_wish = PiggyBank.getInstance().getWishes().get(_key);
-        	if(_wish == null)
-        		Log.e(TAG, String.format("onCreate:No wish for key: %d.", _key));
-        	else 
-        		_currentMode = AddStuffModes.EditMode;
-        }
+
+        extractIntentOptions();
         
-        _priority = (Spinner) findViewById(R.id.add_stuff_priority);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this, R.array.priority_names, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(R.layout.checked_dropdown_list);
-        _priority.setAdapter(adapter);
-        _priority.setSelection(adapter.getCount()/2);
+        initUIElements();
         
-        _note = (EditText)findViewById(R.id.addStuffNoteEditText);
-        _name = (EditText)findViewById(R.id.addStuffNameEditText);
-        
-        _value = (EditText)findViewById(R.id.addStuffValueEditText);
         _value.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -124,15 +111,7 @@ public class AddStuffActivity extends Activity {
 					return;
 				}
 				
-				AddStuffActivityResult resultData = createActivityResult();
-				
-				Intent i = new Intent();
-				i.putExtra(AddStuffActivityResultDataKey, resultData);
-				if(_currentMode == AddStuffModes.EditMode) {
-					i.putExtra(ChangeStuffActivityWishIdOptionKey, _key);
-					i.putExtra(ChangeStuffActivityActionOptionKey, AddStuffResultActions.Update.toString());
-				}
-				
+			    Intent i = prepareResultIntent(AddStuffResultActions.Update);
 				AddStuffActivity.this.setResult(RESULT_OK, i);
 				finish();
 			}
@@ -179,14 +158,61 @@ public class AddStuffActivity extends Activity {
         	_note.setText(_wish.note);
         	
         	((TableRow)findViewById(R.id.add_stuff_button_row)).setWeightSum(2);
-        	findViewById(R.id.add_stuff_delete).setVisibility(View.VISIBLE);
-        	findViewById(R.id.add_stuff_update).setVisibility(View.VISIBLE);
-        	//TODO  
+        	ImageButton deleteButton = (ImageButton)findViewById(R.id.add_stuff_delete);
+        	deleteButton.setVisibility(View.VISIBLE);
+        	deleteButton.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+				    Intent i = prepareResultIntent(AddStuffResultActions.Delete);
+					AddStuffActivity.this.setResult(RESULT_OK, i);					
+				}
+        	});
+        	
+        	ImageButton updateButton = (ImageButton)findViewById(R.id.add_stuff_update);
+        	updateButton.setVisibility(View.VISIBLE);
+        	updateButton.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					// TODO
+				}
+        	});
         }
         
         updateAmount();
     }
 
+    /**
+     * Need to get all needed option from intent.
+     */
+    private void extractIntentOptions() {
+        /// Determining that mode for add stuff activity now.
+        _key = getIntent().getIntExtra(ChangeStuffActivityWishIdOptionKey, -1);
+        if(_key != -1) {
+        	_wish = PiggyBank.getInstance().getWishes().get(_key);
+        	if(_wish == null)
+        		Log.e(TAG, String.format("onCreate:No wish for key: %d.", _key));
+        	else 
+        		_currentMode = AddStuffModes.EditMode;
+        }    	
+    }
+
+    /**
+     * Get reference to UI elements that could be needed while using activity.
+     */
+    private void initUIElements() {
+        _priority = (Spinner) findViewById(R.id.add_stuff_priority);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.priority_names, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(R.layout.checked_dropdown_list);
+        _priority.setAdapter(adapter);
+        _priority.setSelection(adapter.getCount()/2);
+        
+        _note = (EditText)findViewById(R.id.addStuffNoteEditText);
+        _name = (EditText)findViewById(R.id.addStuffNameEditText);
+        
+        _value = (EditText)findViewById(R.id.addStuffValueEditText);
+    }
+    
     /**
      * Create result data for this activity.
      * @return AddSuffActivityResult struct.
@@ -198,6 +224,22 @@ public class AddStuffActivity extends Activity {
     	resultData.note = _note.getText().toString();
     	resultData.priority = _priority.getSelectedItemPosition();
     	return resultData;
+    }
+
+    /**
+     * Prepare intent for activity's result.
+     * @return Prepared intent.
+     */
+    private Intent prepareResultIntent(AddStuffResultActions action) {
+		AddStuffActivityResult resultData = createActivityResult();
+		
+		Intent i = new Intent();
+		i.putExtra(AddStuffActivityResultDataKey, resultData);
+		if(_currentMode == AddStuffModes.EditMode) {
+			i.putExtra(ChangeStuffActivityWishIdOptionKey, _key);
+			i.putExtra(ChangeStuffActivityActionOptionKey, action.toString());
+		}
+		return i;
     }
     
     /**
