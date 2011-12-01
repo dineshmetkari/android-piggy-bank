@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+	<TableLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:stretchColumns="4" 
+		android:shrinkColumns="2"
+		android:background="@drawable/panel_shape">
+		<TableRow
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="8dp">
+    		<LinearLayout android:id="@+id/add_stuff"
+    			android:background="@drawable/plus"
+    			android:clickable="true"
+    			android:layout_margin="5dp"
+    			android:layout_gravity="center"/>
+	    	<LinearLayout 
+	    		android:layout_width="1dp"
+	    		android:layout_height="fill_parent"
+	    		android:layout_margin="5dp"
+	    		android:background="@drawable/divider_shape"/>
+    		<TextView 
+    			android:text="@string/total"
+    			android:textColor="@color/nameText"
+	    		android:textSize="25sp"
+    			android:layout_gravity="center"
+    			android:singleLine="true"/>
+    		<TextView 
+    			android:text=":"
+    			android:textColor="@color/nameText"
+	    		android:textSize="25sp"
+    			android:singleLine="true"/>
+    		<TextView android:id="@+id/amount"
+    			android:text="123456789"
+    			android:textColor="@color/amountText"
+	    		android:textSize="25sp"
+    			android:layout_gravity="center_vertical|left"
+    			android:paddingLeft="3dp"
+    			android:paddingRight="3dp"
+    			android:singleLine="true"/>
+	    	<LinearLayout 
+	    		android:layout_width="1dp"
+	    		android:layout_height="fill_parent"
+	    		android:layout_margin="5dp"
+	    		android:background="@drawable/divider_shape"/>
+    		<LinearLayout android:id="@+id/change_amount"
+    			android:paddingLeft="5dp"
+    			android:paddingRight="5dp" 
+    			android:background="@drawable/change" 
+    			android:layout_gravity="center_vertical"
+    			android:layout_marginRight="15dp" 
+    			android:clickable="true"/>
+    	</TableRow>
+    </TableLayout>
+    <ListView
+        android:id="@+id/stuffList"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
