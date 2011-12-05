@@ -220,8 +220,10 @@ public class PiggyBank extends SQLiteOpenHelper {
 	 */
 	public void deleteWish(int id) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(WishiesTableName,  String.format("key=%d", id), null);
+		int res = db.delete(WishiesTableName,  String.format("key=%d", id), null);
+		Log.d(TAG, String.format("%d rows deleted from wishes data table.", res));
 		db.close();
+        getAllWishes();
 	}
 	
 	/**

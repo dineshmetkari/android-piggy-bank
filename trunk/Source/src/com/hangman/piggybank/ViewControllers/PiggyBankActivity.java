@@ -139,11 +139,13 @@ public class PiggyBankActivity extends Activity {
     			updateData(key, result);
     		}
     		else if(action == AddStuffActivity.AddStuffResultActions.Delete) {
-    			PiggyBank.getInstance().deleteWish(key);
-    			double value = PiggyBank.getInstance().getResourceValue(0);
-    			value -= result.amount;
-    			PiggyBank.getInstance().setResourceValueWithoutProgressChanging(0, value);
+    			/** @attention This need to decomment for substruct amount from current total amount.  
+    				double value = PiggyBank.getInstance().getResourceValue(0);
+    				value -= result.amount;
+    				PiggyBank.getInstance().setResourceValueWithoutProgressChanging(0, value);
+    			*/
     			// TODO Need to ask user: Do you want to substruct amount of wish from total amount?
+    			deleteData(key);
     		}
     	}
     }
@@ -169,6 +171,18 @@ public class PiggyBankActivity extends Activity {
 		Log.d(TAG, String.format("Updating data in data base for key %d: %s, %s, %d, \'%s\'.", key, result.name, Formatter.getValueFormatter(result.amount, 2), result.priority, result.note));
 		
 		PiggyBank.getInstance().changeWishedStuff(key, result.name, result.amount, result.priority, result.note);
+		
+		updateWishesList();
+	}
+
+	/**
+	 * Delete wish data from database.
+	 * @param key Id for data to delete.
+	 */
+	private void deleteData(int key) {
+		Log.d(TAG, String.format("Deleting data in data base for key %d", key));
+		
+		PiggyBank.getInstance().deleteWish(key);
 		
 		updateWishesList();
 	}
