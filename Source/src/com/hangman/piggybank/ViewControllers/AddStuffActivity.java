@@ -164,7 +164,8 @@ public class AddStuffActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 				    Intent i = prepareResultIntent(AddStuffResultActions.Delete);
-					AddStuffActivity.this.setResult(RESULT_OK, i);					
+					AddStuffActivity.this.setResult(RESULT_OK, i);
+					finish();
 				}
         	});
         	
