@@ -68,6 +68,7 @@ public final class R {
         public static final int button_point=0x7f07001c;
         public static final int button_set=0x7f07001d;
         public static final int change_amount=0x7f070020;
+        public static final int stuffElementEstimationTime=0x7f070024;
         public static final int stuffElementName=0x7f070022;
         public static final int stuffElementProgress=0x7f070023;
         public static final int stuffList=0x7f070021;
@@ -95,6 +96,11 @@ public final class R {
         public static final int cancel=0x7f05000e;
         public static final int clear_text=0x7f050004;
         public static final int current=0x7f050002;
+        public static final int estimation_time_complete=0x7f05000f;
+        public static final int estimation_time_days=0x7f050011;
+        public static final int estimation_time_hours=0x7f050012;
+        public static final int estimation_time_minuts=0x7f050013;
+        public static final int estimation_time_soon=0x7f050010;
         public static final int ok=0x7f05000d;
         public static final int set_text=0x7f050003;
         public static final int total=0x7f050001;

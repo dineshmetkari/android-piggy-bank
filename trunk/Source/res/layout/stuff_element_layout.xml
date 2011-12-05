@@ -13,13 +13,20 @@
 	    android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:layout_marginBottom="5dp"
-    />
+    	/>
     
     <ProgressBar
         android:id="@+id/stuffElementProgress"
 	    android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
+    	android:layout_marginBottom="5dp"
     	style="@android:style/Widget.ProgressBar.Horizontal"
-        />
+    	/>
 
+    <TextView
+        android:id="@+id/stuffElementEstimationTime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+    
 </LinearLayout>
