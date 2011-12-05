@@ -26,4 +26,10 @@
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
     
+    <string name="estimation_time_complete">You could get it!</string>
+    <string name="estimation_time_soon">Could available soon.</string>
+    <string name="estimation_time_days">About %d days to complete.</string>
+    <string name="estimation_time_hours">About %d hours to complete.</string>
+    <string name="estimation_time_minuts">About %d minuts to complete.</string>
+        
 </resources>

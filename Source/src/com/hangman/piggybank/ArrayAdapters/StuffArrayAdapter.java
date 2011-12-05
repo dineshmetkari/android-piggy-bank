@@ -3,6 +3,7 @@ package com.hangman.piggybank.ArrayAdapters;
 import java.util.List;
 
 import com.hangman.piggybank.R;
+import com.hangman.piggybank.Models.PiggyBank;
 import com.hangman.piggybank.Models.StuffElement;
 
 import android.content.Context;
@@ -29,7 +30,17 @@ public class StuffArrayAdapter extends ArrayAdapter<StuffElement> {
 		
 		_context = context;
 		_list = objects;
-		// TODO Auto-generated constructor stub
+	}
+
+	private String getProgressString(double progress, double amountToComplite) {
+		String progressString;
+		if(amountToComplite == 0.0)
+			progressString = _context.getString(R.string.estimation_time_complete);
+		else if(progress < 1)
+			progressString = String.format("%s (%f)", _context.getString(R.string.estimation_time_soon), progress);
+		else
+			progressString = String.format("%s (%f).", String.format(_context.getString(R.string.estimation_time_days), Math.round(progress)), progress);
+		return progressString;
 	}
 	
 	@Override
@@ -42,6 +53,15 @@ public class StuffArrayAdapter extends ArrayAdapter<StuffElement> {
 		ProgressBar progressBar = (ProgressBar)rowView.findViewById(R.id.stuffElementProgress);
 		progressBar.setMax(100);
 		progressBar.setProgress((int) Math.round(element.getCurrentAmount()*100.0/element.getNeededAmount()));
+		
+		/** It's right code.
+			double progressPerDay = (element.getNeededAmount() - element.getCurrentAmount()) / PiggyBank.getInstance().getResourceProgress(0)/60.0/60.0/24.0;
+		*/
+		
+		double progressPerDay = (element.getNeededAmount() - element.getCurrentAmount()) / PiggyBank.getInstance().getResourceProgress(0)/60.0;
+		
+		String progressString = this.getProgressString(progressPerDay, element.getNeededAmount() - element.getCurrentAmount());
+		((TextView)rowView.findViewById(R.id.stuffElementEstimationTime)).setText(progressString);
 		rowView.setTag(new Integer(element.getId()));
 		return rowView;
 	}
