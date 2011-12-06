@@ -10,6 +10,7 @@ package com.hangman.piggybank;
 public final class R {
     public static final class array {
         public static final int priority_names=0x7f060000;
+        public static final int wish_delete_selection=0x7f060001;
     }
     public static final class attr {
     }
@@ -41,7 +42,7 @@ public final class R {
         public static final int addStuffNameEditText=0x7f070000;
         public static final int addStuffNoteEditText=0x7f070005;
         public static final int addStuffValueEditText=0x7f070002;
-        public static final int add_stuff=0x7f07001e;
+        public static final int add_stuff=0x7f070021;
         public static final int add_stuff_amount_minus=0x7f070003;
         public static final int add_stuff_amount_plus=0x7f070001;
         public static final int add_stuff_button_row=0x7f070006;
@@ -50,7 +51,7 @@ public final class R {
         public static final int add_stuff_ok=0x7f070009;
         public static final int add_stuff_priority=0x7f070004;
         public static final int add_stuff_update=0x7f070007;
-        public static final int amount=0x7f07001f;
+        public static final int amount=0x7f070022;
         public static final int button_0=0x7f07001b;
         public static final int button_1=0x7f070016;
         public static final int button_2=0x7f070017;
@@ -67,11 +68,14 @@ public final class R {
         public static final int button_plus=0x7f070015;
         public static final int button_point=0x7f07001c;
         public static final int button_set=0x7f07001d;
-        public static final int change_amount=0x7f070020;
-        public static final int stuffElementEstimationTime=0x7f070024;
-        public static final int stuffElementName=0x7f070022;
-        public static final int stuffElementProgress=0x7f070023;
-        public static final int stuffList=0x7f070021;
+        public static final int change_amount=0x7f070023;
+        public static final int drop_douwn_dialog_label=0x7f07001f;
+        public static final int drop_down_dialog_root=0x7f07001e;
+        public static final int drop_down_dialog_selection=0x7f070020;
+        public static final int stuffElementEstimationTime=0x7f070027;
+        public static final int stuffElementName=0x7f070025;
+        public static final int stuffElementProgress=0x7f070026;
+        public static final int stuffList=0x7f070024;
         public static final int text_view_amount=0x7f07000c;
         public static final int text_view_computation=0x7f07000d;
         public static final int title_text_view=0x7f07000b;
@@ -80,8 +84,9 @@ public final class R {
         public static final int add_desired_stuff_layout=0x7f030000;
         public static final int change_amount_layout=0x7f030001;
         public static final int checked_dropdown_list=0x7f030002;
-        public static final int main=0x7f030003;
-        public static final int stuff_element_layout=0x7f030004;
+        public static final int drop_down_dialog_layout=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int stuff_element_layout=0x7f030005;
     }
     public static final class string {
         public static final int add_stuff_alert_message=0x7f05000c;
@@ -104,5 +109,6 @@ public final class R {
         public static final int ok=0x7f05000d;
         public static final int set_text=0x7f050003;
         public static final int total=0x7f050001;
+        public static final int wish_delete_dialog_title=0x7f050014;
     }
 }
