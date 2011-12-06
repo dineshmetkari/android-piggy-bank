@@ -141,7 +141,7 @@ public class ChangeAmountActivity extends Activity {
         _button_set.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent i = null;
+				Intent i = new Intent();
 				if(_currentMode == Modes.ChangeMode) {
 					double currentAmount = _amountValue;
 					double currentArgument = Double.parseDouble(_currentArgumentText);
@@ -155,16 +155,13 @@ public class ChangeAmountActivity extends Activity {
 					double currentArgument = Double.parseDouble(_currentArgumentText);
 					_amountValue = currentArgument;
 					Log.d(TAG, String.format("Result from ChangeAmountActivity is %f.", _amountValue));
-					i = new Intent();
 					i.putExtra(amountKey, _amountValue);
 				}
+				i.putExtra(modeKey, _currentMode.toString());
 				_amount.requestLayout();
 				_amount.setText(Formatter.getValueFormatter(_amountValue, 2));
 				vibrate();
-				if(i == null)
-					ChangeAmountActivity.this.setResult(RESULT_OK);
-				else
-					ChangeAmountActivity.this.setResult(RESULT_OK, i);
+				ChangeAmountActivity.this.setResult(RESULT_OK, i);
 				finish();
 			}
         });
