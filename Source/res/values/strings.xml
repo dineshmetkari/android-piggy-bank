@@ -32,4 +32,12 @@
     <string name="estimation_time_hours">About %d hours to complete.</string>
     <string name="estimation_time_minuts">About %d minuts to complete.</string>
         
+    <string-array name="wish_delete_selection">
+        <item>Substract wish amount from total.</item>
+        <item>I\'ll specify amount to substract.</item>
+        <item>Leave total amount.</item>
+    </string-array>
+    
+    <string name="wish_delete_dialog_title">Select delete option:</string>
+        
 </resources>
