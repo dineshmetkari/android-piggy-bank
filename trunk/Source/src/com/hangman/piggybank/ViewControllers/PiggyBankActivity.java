@@ -156,8 +156,19 @@ public class PiggyBankActivity extends Activity {
     			return;
     		}
     		
-    		updateAmount();
-    		updateWishesList();
+    		ChangeAmountActivity.Modes mode = ChangeAmountActivity.Modes.valueOf(data.getStringExtra(ChangeAmountActivity.modeKey));
+    		if(mode == ChangeAmountActivity.Modes.ChangeMode) {
+    			updateAmount();
+    			updateWishesList();
+    		}
+    		else {
+        		double sub = data.getDoubleExtra(ChangeAmountActivity.amountKey, 0.0);
+				double value = PiggyBank.getInstance().getResourceValue(0);
+				value -= sub;
+				PiggyBank.getInstance().setResourceValueWithoutProgressChanging(0, value);
+				updateAmount();
+				deleteData(_currentChangeWishActivityKey);
+    		}
     	}
     	else if(requestCode == AddStuffActivityId) {
     		Log.i(TAG, "Add stuff activity result processing...");
@@ -297,18 +308,19 @@ public class PiggyBankActivity extends Activity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				Log.d(TAG, String.format("Ok button on selection dialog pressed. Item selected: %s.", PiggyBankActivity.this._currentWishDeleteSelector));
+				double value = PiggyBank.getInstance().getResourceValue(0);
 				switch(_currentWishDeleteSelector) {
 				case Substruct: 
-					double value = PiggyBank.getInstance().getResourceValue(0);
 					value -= _currentChangeWishActivityResult.amount;
 					PiggyBank.getInstance().setResourceValueWithoutProgressChanging(0, value);
 					updateAmount();
 					deleteData(_currentChangeWishActivityKey);
 					break;
 				case UserSpecify:
-					// TODO
-					updateAmount();
-					deleteData(_currentChangeWishActivityKey);
+					final Intent i = new Intent(PiggyBankActivity.this, ChangeAmountActivity.class);
+					i.putExtra(ChangeAmountActivity.modeKey, ChangeAmountActivity.Modes.EnterMode.toString());
+					i.putExtra(ChangeAmountActivity.amountKey, value);
+					PiggyBankActivity.this.startActivityForResult(i, ChangeAmountActivityId);
 					break;
 				case LeaveAlone: 
 					deleteData(_currentChangeWishActivityKey);
@@ -316,7 +328,6 @@ public class PiggyBankActivity extends Activity {
 				case Unspecified: break;
 				}
 				_currentChangeWishActivityResult = null;
-				_currentChangeWishActivityKey = 0;
 				_currentWishDeleteSelector = WishDeleteSelectors.Unspecified;
 				return;
 			}
