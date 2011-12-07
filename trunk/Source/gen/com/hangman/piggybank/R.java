@@ -104,15 +104,16 @@ public final class R {
         public static final int cancel=0x7f05000e;
         public static final int clear_text=0x7f050004;
         public static final int current=0x7f050002;
-        public static final int estimation_time_complete=0x7f05000f;
-        public static final int estimation_time_days=0x7f050011;
-        public static final int estimation_time_hours=0x7f050012;
-        public static final int estimation_time_minuts=0x7f050013;
-        public static final int estimation_time_soon=0x7f050010;
+        public static final int estimation_time_complete=0x7f050010;
+        public static final int estimation_time_days=0x7f050012;
+        public static final int estimation_time_hours=0x7f050013;
+        public static final int estimation_time_minuts=0x7f050014;
+        public static final int estimation_time_soon=0x7f050011;
+        public static final int estimation_time_unable_to_compute=0x7f05000f;
         public static final int ok=0x7f05000d;
         public static final int set_text=0x7f050003;
         public static final int total=0x7f050001;
-        public static final int wish_delete_dialog_title=0x7f050014;
+        public static final int wish_delete_dialog_title=0x7f050015;
     }
     public static final class style {
         public static final int ProgressBarHorizontal=0x7f070000;
