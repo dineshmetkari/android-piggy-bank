@@ -20,7 +20,8 @@
 	    android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
     	android:layout_marginBottom="5dp"
-    	style="@android:style/Widget.ProgressBar.Horizontal"
+    	style="@style/ProgressBarHorizontal"
+    	android:background="@drawable/progressbar"
     	/>
 
     <TextView
