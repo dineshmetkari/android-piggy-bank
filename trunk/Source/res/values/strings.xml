@@ -41,4 +41,19 @@
     
     <string name="wish_delete_dialog_title">Select delete option:</string>
         
+    <string name="main_menu_about_title">About</string>
+    <string name="main_menu_add_wish_title">Add wish</string>
+    <string name="main_menu_change_amount_title">Change amount</string>
+
+	<string name="about_title">About PiggyBank</string> 
+	<string name="company_name">Copyright (C) 2011 Hangman Corp.</string> 
+	<string name="www_address">http://www.hangman/piggybank.ru</string> 
+	<string name="about_text">This application is used to manage your resource incomings: money and etc. 
+	    You could make some wishies in resourse equivalence, name, note, set priority.
+	    List of all you wishies is on main page were you could see wishies progress and estimation time for it.\n\n
+	    Program is use your incomings to make some statistic suggestion about wishies estimation time.
+	    Estimation time is not accurately, so don\'t rely on it.
+	    Accuracy of estimation time depend on program period using long.\n\n
+	    PiggyBank developers and designers hope that you enjoy the product and it will help to fulfill your desires.</string>
+        
 </resources>

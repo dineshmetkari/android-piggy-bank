@@ -2,4 +2,6 @@
 <resources>
     <color name="nameText">#FFAFAFAF</color>
     <color name="amountText">#FFFFFFFF</color>
+    <color name="translucentColor">#90000000</color>
+    <color name="aboutTextTitleColor">#FFFFFFFF</color>
 </resources>
