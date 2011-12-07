@@ -14,7 +14,6 @@ public class Tools {
 	public static int numberLevel(double number) {
 		if(number == 0.0)
 			return 0;
-			//throw new RuntimeException("Couldn't compute number level.");
 		return (int)Math.log10(number);
 	}
 	

@@ -18,6 +18,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -59,6 +61,7 @@ public class PiggyBankActivity extends Activity {
 	
 	final static private int ChangeAmountActivityId = 1;
 	final static private int AddStuffActivityId = 2;
+	final static private int AboutActivityId = 3;
 	
 	final static private String TAG = "PiggyBankActivity";
 	
@@ -90,9 +93,7 @@ public class PiggyBankActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				Log.i(TAG, "Change amount button clicked.");
-				final Intent i = new Intent(PiggyBankActivity.this, ChangeAmountActivity.class);
-				i.putExtra(ChangeAmountActivity.modeKey, ChangeAmountActivity.Modes.ChangeMode.toString());
-				PiggyBankActivity.this.startActivityForResult(i, ChangeAmountActivityId);
+	    		initiateChangingAmount();
 			}
         });
         
@@ -105,8 +106,7 @@ public class PiggyBankActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Log.i(TAG, "Add stuff button clicked.");
-				final Intent i = new Intent(PiggyBankActivity.this, AddStuffActivity.class);
-				PiggyBankActivity.this.startActivityForResult(i, AddStuffActivityId);
+	    		initiateAddingStuff();
 			}
         });
         
@@ -127,6 +127,51 @@ public class PiggyBankActivity extends Activity {
         updateWishesList();
     }
 
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	super.onCreateOptionsMenu(menu);
+    	getMenuInflater().inflate(R.layout.main_menu, menu);
+    	return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	switch(item.getItemId()) {
+    	case R.id.main_menu_add_wish:
+    		Log.i(TAG, "Add wish menu selected.");
+    		initiateAddingStuff();
+    		break;
+    	case R.id.main_menu_change_amount:
+    		Log.i(TAG, "Change amount menu selected.");
+    		initiateChangingAmount();
+    		break;
+    	case R.id.main_menu_about:
+    		Log.i(TAG, "About menu selected.");
+    		final Intent i = new Intent(PiggyBankActivity.this, AboutActivity.class);
+    		PiggyBankActivity.this.startActivityForResult(i, AboutActivityId);    	
+    		break;
+    	}
+    	return false;
+    }
+
+    /**
+     * Start ChangeAmountActivity in ChangeMode mode.
+     */
+    protected void initiateChangingAmount() {
+		final Intent i = new Intent(PiggyBankActivity.this, ChangeAmountActivity.class);
+		i.putExtra(ChangeAmountActivity.modeKey, ChangeAmountActivity.Modes.ChangeMode.toString());
+		PiggyBankActivity.this.startActivityForResult(i, ChangeAmountActivityId);    	
+    }
+
+    /**
+     * Start AddStuffActivity.
+     */
+    protected void initiateAddingStuff() {
+		final Intent i = new Intent(PiggyBankActivity.this, AddStuffActivity.class);
+		PiggyBankActivity.this.startActivityForResult(i, AddStuffActivityId);    	
+    }
+    
     /**
      * Create data for UI wish list updation.
      * @return Array list with info about each element in UI list.

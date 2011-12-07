@@ -15,10 +15,12 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int aboutTextTitleColor=0x7f040003;
         public static final int amountText=0x7f040001;
-        public static final int button_surface=0x7f040002;
+        public static final int button_surface=0x7f040004;
         public static final int nameText=0x7f040000;
-        public static final int special_button_surface=0x7f040003;
+        public static final int special_button_surface=0x7f040005;
+        public static final int translucentColor=0x7f040002;
     }
     public static final class drawable {
         public static final int button_disable_shape=0x7f020000;
@@ -43,55 +45,63 @@ public final class R {
         public static final int text_shape=0x7f020013;
     }
     public static final class id {
-        public static final int addStuffNameEditText=0x7f080000;
-        public static final int addStuffNoteEditText=0x7f080005;
-        public static final int addStuffValueEditText=0x7f080002;
-        public static final int add_stuff=0x7f080020;
-        public static final int add_stuff_amount_minus=0x7f080003;
-        public static final int add_stuff_amount_plus=0x7f080001;
-        public static final int add_stuff_button_row=0x7f080006;
-        public static final int add_stuff_cancel=0x7f080009;
-        public static final int add_stuff_delete=0x7f080007;
-        public static final int add_stuff_ok=0x7f080008;
-        public static final int add_stuff_priority=0x7f080004;
-        public static final int amount=0x7f080021;
-        public static final int button_0=0x7f08001a;
-        public static final int button_1=0x7f080015;
-        public static final int button_2=0x7f080016;
-        public static final int button_3=0x7f080017;
-        public static final int button_4=0x7f080011;
-        public static final int button_5=0x7f080012;
-        public static final int button_6=0x7f080013;
-        public static final int button_7=0x7f08000d;
-        public static final int button_8=0x7f08000e;
-        public static final int button_9=0x7f08000f;
-        public static final int button_back=0x7f080019;
-        public static final int button_clear=0x7f080010;
-        public static final int button_minus=0x7f080018;
-        public static final int button_plus=0x7f080014;
-        public static final int button_point=0x7f08001b;
-        public static final int button_set=0x7f08001c;
-        public static final int change_amount=0x7f080022;
-        public static final int drop_douwn_dialog_label=0x7f08001e;
-        public static final int drop_down_dialog_root=0x7f08001d;
-        public static final int drop_down_dialog_selection=0x7f08001f;
-        public static final int stuffElementEstimationTime=0x7f080026;
-        public static final int stuffElementName=0x7f080024;
-        public static final int stuffElementProgress=0x7f080025;
-        public static final int stuffList=0x7f080023;
-        public static final int text_view_amount=0x7f08000b;
-        public static final int text_view_computation=0x7f08000c;
-        public static final int title_text_view=0x7f08000a;
+        public static final int aboutVersion=0x7f080000;
+        public static final int addStuffNameEditText=0x7f080001;
+        public static final int addStuffNoteEditText=0x7f080006;
+        public static final int addStuffValueEditText=0x7f080003;
+        public static final int add_stuff=0x7f080021;
+        public static final int add_stuff_amount_minus=0x7f080004;
+        public static final int add_stuff_amount_plus=0x7f080002;
+        public static final int add_stuff_button_row=0x7f080007;
+        public static final int add_stuff_cancel=0x7f08000a;
+        public static final int add_stuff_delete=0x7f080008;
+        public static final int add_stuff_ok=0x7f080009;
+        public static final int add_stuff_priority=0x7f080005;
+        public static final int amount=0x7f080022;
+        public static final int button_0=0x7f08001b;
+        public static final int button_1=0x7f080016;
+        public static final int button_2=0x7f080017;
+        public static final int button_3=0x7f080018;
+        public static final int button_4=0x7f080012;
+        public static final int button_5=0x7f080013;
+        public static final int button_6=0x7f080014;
+        public static final int button_7=0x7f08000e;
+        public static final int button_8=0x7f08000f;
+        public static final int button_9=0x7f080010;
+        public static final int button_back=0x7f08001a;
+        public static final int button_clear=0x7f080011;
+        public static final int button_minus=0x7f080019;
+        public static final int button_plus=0x7f080015;
+        public static final int button_point=0x7f08001c;
+        public static final int button_set=0x7f08001d;
+        public static final int change_amount=0x7f080023;
+        public static final int drop_douwn_dialog_label=0x7f08001f;
+        public static final int drop_down_dialog_root=0x7f08001e;
+        public static final int drop_down_dialog_selection=0x7f080020;
+        public static final int main_menu_about=0x7f080027;
+        public static final int main_menu_add_wish=0x7f080025;
+        public static final int main_menu_change_amount=0x7f080026;
+        public static final int stuffElementEstimationTime=0x7f08002a;
+        public static final int stuffElementName=0x7f080028;
+        public static final int stuffElementProgress=0x7f080029;
+        public static final int stuffList=0x7f080024;
+        public static final int text_view_amount=0x7f08000c;
+        public static final int text_view_computation=0x7f08000d;
+        public static final int title_text_view=0x7f08000b;
     }
     public static final class layout {
-        public static final int add_desired_stuff_layout=0x7f030000;
-        public static final int change_amount_layout=0x7f030001;
-        public static final int checked_dropdown_list=0x7f030002;
-        public static final int drop_down_dialog_layout=0x7f030003;
-        public static final int main=0x7f030004;
-        public static final int stuff_element_layout=0x7f030005;
+        public static final int about_layout=0x7f030000;
+        public static final int add_desired_stuff_layout=0x7f030001;
+        public static final int change_amount_layout=0x7f030002;
+        public static final int checked_dropdown_list=0x7f030003;
+        public static final int drop_down_dialog_layout=0x7f030004;
+        public static final int main=0x7f030005;
+        public static final int main_menu=0x7f030006;
+        public static final int stuff_element_layout=0x7f030007;
     }
     public static final class string {
+        public static final int about_text=0x7f05001c;
+        public static final int about_title=0x7f050019;
         public static final int add_stuff_alert_message=0x7f05000c;
         public static final int add_stuff_alert_title=0x7f05000b;
         public static final int add_stuff_amount_label_text=0x7f050007;
@@ -103,6 +113,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f05000e;
         public static final int clear_text=0x7f050004;
+        public static final int company_name=0x7f05001a;
         public static final int current=0x7f050002;
         public static final int estimation_time_complete=0x7f050010;
         public static final int estimation_time_days=0x7f050012;
@@ -110,12 +121,17 @@ public final class R {
         public static final int estimation_time_minuts=0x7f050014;
         public static final int estimation_time_soon=0x7f050011;
         public static final int estimation_time_unable_to_compute=0x7f05000f;
+        public static final int main_menu_about_title=0x7f050016;
+        public static final int main_menu_add_wish_title=0x7f050017;
+        public static final int main_menu_change_amount_title=0x7f050018;
         public static final int ok=0x7f05000d;
         public static final int set_text=0x7f050003;
         public static final int total=0x7f050001;
         public static final int wish_delete_dialog_title=0x7f050015;
+        public static final int www_address=0x7f05001b;
     }
     public static final class style {
         public static final int ProgressBarHorizontal=0x7f070000;
+        public static final int Theme_Translucent=0x7f070001;
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item 
+    	android:id="@+id/main_menu_add_wish" 
+        android:title="@string/main_menu_add_wish_title" 
+        android:icon="@drawable/plus"/>
+    <item 
+    	android:id="@+id/main_menu_change_amount" 
+        android:title="@string/main_menu_change_amount_title" 
+        android:icon="@drawable/change"/>
+   	<item 
+    	android:id="@+id/main_menu_about" 
+        android:title="@string/main_menu_about_title" 
+        android:icon="@android:drawable/ic_menu_info_details"/>
+</menu>
