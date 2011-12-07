@@ -108,19 +108,6 @@
 			    android:gravity="center"
 			    android:weightSum="1">
 				<ImageButton 
-				    android:id="@+id/add_stuff_update"
-				    android:layout_width="0dp"
-				    android:layout_height="50dp"
-				    android:layout_weight="0.5"
-					android:background="@drawable/button_selector" 
-					android:textColor="@color/button_surface"
-					android:layout_margin="5dp" 
-					android:textSize="24sp"
-					android:padding="10dp"
-					android:scaleType="fitCenter"
-					android:visibility="gone"
-					android:src="@android:drawable/ic_menu_rotate"/> 
-				<ImageButton 
 				    android:id="@+id/add_stuff_delete"
 				    android:layout_width="0dp"
 				    android:layout_height="50dp"

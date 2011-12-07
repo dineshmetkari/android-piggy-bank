@@ -157,7 +157,7 @@ public class AddStuffActivity extends Activity {
         	_priority.setSelection(_wish.priority);
         	_note.setText(_wish.note);
         	
-        	((TableRow)findViewById(R.id.add_stuff_button_row)).setWeightSum(2);
+        	((TableRow)findViewById(R.id.add_stuff_button_row)).setWeightSum(1.5f);
         	ImageButton deleteButton = (ImageButton)findViewById(R.id.add_stuff_delete);
         	deleteButton.setVisibility(View.VISIBLE);
         	deleteButton.setOnClickListener(new OnClickListener() {
@@ -166,15 +166,6 @@ public class AddStuffActivity extends Activity {
 				    Intent i = prepareResultIntent(AddStuffResultActions.Delete);
 					AddStuffActivity.this.setResult(RESULT_OK, i);
 					finish();
-				}
-        	});
-        	
-        	ImageButton updateButton = (ImageButton)findViewById(R.id.add_stuff_update);
-        	updateButton.setVisibility(View.VISIBLE);
-        	updateButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					// TODO
 				}
         	});
         }
