@@ -26,6 +26,10 @@ public class Tools {
 	 */
 	public static String getProgressString(double progress, double amountToComplite) {
 		String progressString;
+		
+		if(Double.isInfinite(progress))
+			return PiggyBankApplication.getContext().getString(R.string.estimation_time_unable_to_compute);
+		
 		double theProgress = progress/60.0;
 		
 		if(amountToComplite == 0.0)
