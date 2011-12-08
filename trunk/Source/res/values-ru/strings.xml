@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Копилка</string>
+    <string name="total">Всего</string>
+    <string name="current">Текущее</string>
+    <string name="set_text">=</string>
+    <string name="clear_text">C</string>
+    
+    <string name="add_stuff_name_label_text">Название:</string>
+    <string name="add_stuff_name_hint">Введите название</string>
+    <string name="add_stuff_amount_label_text">Необходимо ресурсов:</string>
+    <string name="add_stuff_priority_label_text">Приоритет:</string>
+    <string name="add_stuff_note_label_text">Примечание:</string>
+    <string name="add_stuff_note_hint_text">Введите примечание</string>
+    <string name="add_stuff_alert_title">Не могу добавить данные</string>
+    <string name="add_stuff_alert_message">Некоторые данные не введены или введены некорректно. Не могу добавить данные.</string>
+        
+    <string-array name="priority_names">
+        <item>Наивысший</item>
+        <item>Высокий</item>
+        <item>Средний</item>
+        <item>Низкий</item>
+        <item>Самый низкий</item>
+    </string-array>
+    
+    <string name="ok">Ok</string>
+    <string name="cancel">Отмена</string>
+    
+    <string name="estimation_time_unable_to_compute">Не могу рассчитать необходимое время.</string>
+    <string name="estimation_time_complete">Накопление завершено.</string>
+    <string name="estimation_time_soon">Накопление будет вскоре завершено.</string>
+    <string name="estimation_time_days">До завершения накопления примерно %d дней.</string>
+    <string name="estimation_time_hours">До завершения накопления примерно %d часов.</string>
+    <string name="estimation_time_minuts">До завершения накопления примерно %d минут.</string>
+        
+    <string-array name="wish_delete_selection">
+        <item>Вычесть стоимость накопления из общей суммы.</item>
+        <item>Я сам задам значение для вычитания из общей суммы.</item>
+        <item>Не изменять общую сумму.</item>
+    </string-array>
+    
+    <string name="wish_delete_dialog_title">Выберите параметр удаления:</string>
+        
+    <string name="main_menu_about_title">О программе</string>
+    <string name="main_menu_add_wish_title">Добавить накопление</string>
+    <string name="main_menu_change_amount_title">Изменить общую сумму</string>
+
+	<string name="about_title">О копилке</string> 
+	<string name="company_name">Copyright (C) 2011 Hangman Corp.</string> 
+	<string name="www_address">http://www.hangman/piggybank.ru</string> 
+	<string name="about_text">
+	    Это приложение используется для контроля и управления вашей прибылью: деньгами или другим исчислимым достатком.
+		Вы можете создавать пожелания выражая его стоимость в числовом значении, завать название, примечание и приоритет.
+		Список всех ваших пожеланий будет отображаться в главном окне программы вместе с предположительным времением
+		исполнения желания.\n\n
+		Программа использует вышу прибыль для определения статистики и попытки предположить время исполнения желания.
+	    Время исполнения желания, рассчитанное программой, вычисляется не точно - это всего лишь результат примерных вычислений.
+	    Точность вычислений зависит от длительности использования программы и аккуратности и своевременности ввода пополнений или других изменений.\n\n
+	    Разработчики программы и дезайнеры надеются на то, что этот продукт будет Вам полезен в исполнении Ваших желаний.</string>
+        
+</resources>
