@@ -43,7 +43,7 @@ public class Tools {
 			progressString = String.format(PiggyBankApplication.getContext().getString(R.string.estimation_time_days), Math.round(theProgress/60.0/24.0));
 		
 		//It's debug code. Need to comment in release.
-		progressString = String.format("%s (%f)", progressString, progress);
+		//progressString = String.format("%s (%f)", progressString, progress);
 		
 		return progressString;
 	}
