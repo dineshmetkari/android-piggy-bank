@@ -32,6 +32,8 @@
     <string name="estimation_time_days">About %d days to complete.</string>
     <string name="estimation_time_hours">About %d hours to complete.</string>
     <string name="estimation_time_minuts">About %d minuts to complete.</string>
+    
+    <string name="prepared_value_text">Prepared value: %1$s from %2$s.</string>
         
     <string-array name="wish_delete_selection">
         <item>Substract wish amount from total.</item>

@@ -83,6 +83,7 @@ public final class R {
         public static final int main_menu_change_amount=0x7f080026;
         public static final int stuffElementEstimationTime=0x7f08002a;
         public static final int stuffElementName=0x7f080028;
+        public static final int stuffElementPreparedValue=0x7f08002b;
         public static final int stuffElementProgress=0x7f080029;
         public static final int stuffList=0x7f080024;
         public static final int text_view_amount=0x7f08000c;
@@ -100,8 +101,8 @@ public final class R {
         public static final int stuff_element_layout=0x7f030007;
     }
     public static final class string {
-        public static final int about_text=0x7f05001c;
-        public static final int about_title=0x7f050019;
+        public static final int about_text=0x7f05001d;
+        public static final int about_title=0x7f05001a;
         public static final int add_stuff_alert_message=0x7f05000c;
         public static final int add_stuff_alert_title=0x7f05000b;
         public static final int add_stuff_amount_label_text=0x7f050007;
@@ -113,7 +114,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int cancel=0x7f05000e;
         public static final int clear_text=0x7f050004;
-        public static final int company_name=0x7f05001a;
+        public static final int company_name=0x7f05001b;
         public static final int current=0x7f050002;
         public static final int estimation_time_complete=0x7f050010;
         public static final int estimation_time_days=0x7f050012;
@@ -121,14 +122,15 @@ public final class R {
         public static final int estimation_time_minuts=0x7f050014;
         public static final int estimation_time_soon=0x7f050011;
         public static final int estimation_time_unable_to_compute=0x7f05000f;
-        public static final int main_menu_about_title=0x7f050016;
-        public static final int main_menu_add_wish_title=0x7f050017;
-        public static final int main_menu_change_amount_title=0x7f050018;
+        public static final int main_menu_about_title=0x7f050017;
+        public static final int main_menu_add_wish_title=0x7f050018;
+        public static final int main_menu_change_amount_title=0x7f050019;
         public static final int ok=0x7f05000d;
+        public static final int prepared_value_text=0x7f050015;
         public static final int set_text=0x7f050003;
         public static final int total=0x7f050001;
-        public static final int wish_delete_dialog_title=0x7f050015;
-        public static final int www_address=0x7f05001b;
+        public static final int wish_delete_dialog_title=0x7f050016;
+        public static final int www_address=0x7f05001c;
     }
     public static final class style {
         public static final int ProgressBarHorizontal=0x7f070000;

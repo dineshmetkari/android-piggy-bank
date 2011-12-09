@@ -33,6 +33,8 @@
     <string name="estimation_time_hours">До завершения накопления примерно %d часов.</string>
     <string name="estimation_time_minuts">До завершения накопления примерно %d минут.</string>
         
+    <string name="prepared_value_text">Накоплено: %1$s из %2$s.</string>
+    
     <string-array name="wish_delete_selection">
         <item>Вычесть стоимость накопления из общей суммы.</item>
         <item>Я сам задам значение для вычитания из общей суммы.</item>

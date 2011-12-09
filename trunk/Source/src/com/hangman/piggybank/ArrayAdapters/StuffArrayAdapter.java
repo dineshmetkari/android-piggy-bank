@@ -2,9 +2,11 @@ package com.hangman.piggybank.ArrayAdapters;
 
 import java.util.List;
 
+import com.hangman.piggybank.PiggyBankApplication;
 import com.hangman.piggybank.R;
 import com.hangman.piggybank.Models.PiggyBank;
 import com.hangman.piggybank.Models.StuffElement;
+import com.hangman.piggybank.Utils.Formatter;
 import com.hangman.piggybank.Utils.Tools;
 
 import android.content.Context;
@@ -49,6 +51,12 @@ public class StuffArrayAdapter extends ArrayAdapter<StuffElement> {
 		String progressString = Tools.getProgressString(progressPerSecond, element.getNeededAmount() - element.getCurrentAmount());
 		((TextView)rowView.findViewById(R.id.stuffElementEstimationTime)).setText(progressString);
 		rowView.setTag(new Integer(element.getId()));
+		
+		String currentValue = String.format(PiggyBankApplication.getContext().getString(R.string.prepared_value_text), 
+				Formatter.getValueFormatter(element.getCurrentAmount(), 2),
+				Formatter.getValueFormatter(element.getNeededAmount(), 2));
+		((TextView)rowView.findViewById(R.id.stuffElementPreparedValue)).setText(currentValue);
+		
 		return rowView;
 	}
 
