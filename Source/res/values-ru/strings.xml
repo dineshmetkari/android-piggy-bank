@@ -21,6 +21,7 @@
         <item>Средний</item>
         <item>Низкий</item>
         <item>Самый низкий</item>
+        <item>Игнорировать</item>
     </string-array>
     
     <string name="ok">Ok</string>
