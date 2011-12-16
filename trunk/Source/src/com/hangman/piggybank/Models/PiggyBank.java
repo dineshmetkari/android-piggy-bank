@@ -1,6 +1,5 @@
 package com.hangman.piggybank.Models;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 
 import com.hangman.piggybank.PiggyBankApplication;
@@ -34,23 +33,15 @@ public class PiggyBank extends SQLiteOpenHelper {
 	final static String ResourcesTableName = "resources_table";
 	final static String WishiesTableName = "wishies_table";
 	final static int TableVersion = 4;
-	final static int PrioritiesCount = 5;
+	final static int PrioritiesCount = 6;
 
 	private Hashtable<Integer, WishRecord> _wishes = null;
-	private ArrayList<Double> _priorityWeightCount = new ArrayList<Double>();
-	private ArrayList<Integer> _priorityCount = new ArrayList<Integer>();
-	private Double _prioritiesWeight = 0.0;
 	
 	/**
 	 * Private singleton's constructor.
 	 */
 	private PiggyBank() {
 		super(PiggyBankApplication.getContext(), "PiggyBankTable", null, TableVersion);
-		
-		for(int i = 0; i < PrioritiesCount; i++) {
-			_priorityWeightCount.add(0.0);
-			_priorityCount.add(0);
-		}
 	}
 
 	/**
@@ -240,7 +231,6 @@ public class PiggyBank extends SQLiteOpenHelper {
 			return;
 		}
 		Hashtable<Integer, WishRecord> table = new Hashtable<Integer, WishRecord>();
-		_prioritiesWeight = 0.0;
 		do {
 			WishRecord record = new WishRecord();
 			int key = cursor.getInt(0);
@@ -249,11 +239,6 @@ public class PiggyBank extends SQLiteOpenHelper {
 			record.priority = cursor.getInt(3);
 			record.note = cursor.getString(4);
 			table.put(key, record);
-			
-			double priorityWeight = 0.5 / (double)(record.priority + 1);
-			_prioritiesWeight += priorityWeight; 
-			_priorityWeightCount.set(record.priority, _priorityWeightCount.get(record.priority).doubleValue() + priorityWeight);
-			_priorityCount.set(record.priority, _priorityCount.get(record.priority).intValue() + 1);			
 		}
 		while(cursor.moveToNext());
 		_wishes = table;
@@ -267,17 +252,6 @@ public class PiggyBank extends SQLiteOpenHelper {
 		if(_wishes == null)
 			getAllWishes();
 		return _wishes;
-	}
-	
-	/**
-	 * Compute weight for selected priority.
-	 * @param priority Priority for which needed weight.
-	 * @return weight form 0 to 1.
-	 */
-	public double getWeightForPriority(int priority) {
-		if(priority >= PrioritiesCount)
-			return 0.0;
-		return _priorityWeightCount.get(priority)/_priorityCount.get(priority)/_prioritiesWeight;
 	}
 	
 	@Override

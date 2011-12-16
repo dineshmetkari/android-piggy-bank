@@ -7,7 +7,12 @@ public class WishiesProcessor {
 	/**
 	 * Number of priorities.
 	 */
-	final static int PrioritiesCount = 5;
+	final static int PrioritiesCount = 6;
+	
+	/**
+	 * Priority for ignoring.
+	 */
+	final static int IgnorePriority = 5;
 	
 	/**
 	 * List for all wishies.
@@ -49,6 +54,8 @@ public class WishiesProcessor {
     	
         for(int i = 0; i < _dataList.size(); i++) {
         	StuffElement element = _dataList.get(i);
+        	if(element.getPriority() == IgnorePriority)
+        		continue;
         	double priorityWeight = 0.5 / (double)(element.getPriority() + 1);
         	_prioritiesWeight += priorityWeight; 
         	_priorityWeightCount.set(element.getPriority(), _priorityWeightCount.get(element.getPriority()).doubleValue() + priorityWeight);
@@ -62,7 +69,7 @@ public class WishiesProcessor {
 	 * @return weight form 0 to 1.
 	 */
 	public double getWeightForPriority(int priority) {
-		if(priority >= PrioritiesCount)
+		if((priority >= PrioritiesCount) || (priority == IgnorePriority))
 			return 0.0;
 		return _priorityWeightCount.get(priority)/_priorityCount.get(priority)/_prioritiesWeight;
 	}
@@ -89,7 +96,7 @@ public class WishiesProcessor {
 		final ArrayList<Integer> prioritiesForExclude = new ArrayList<Integer>();
         for(int i = 0; i < _dataList.size(); i++) {
         	StuffElement element = _dataList.get(i);
-        	if(element.isEnded())
+        	if(element.isEnded() || (element.getPriority() == IgnorePriority))
         		continue;
             double amount = value *	getWeightForPriority(element.getPriority());
             if(amount > element.getNeededAmount()) {

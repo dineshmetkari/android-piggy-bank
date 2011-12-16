@@ -21,6 +21,7 @@
         <item>Middle</item>
         <item>Low</item>
         <item>Lowest</item>
+        <item>Ignore</item>
     </string-array>
     
     <string name="ok">Ok</string>

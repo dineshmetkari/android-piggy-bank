@@ -20,18 +20,18 @@ public class Tools {
 	/**
 	 * Return string progress representation.
 	 * @param progress Current progress in values per second.
-	 * @param amountToComplite Number of values to complite wish.
+	 * @param amountToComplete Number of values to complete wish.
 	 * @return String with progress estimation.
 	 */
-	public static String getProgressString(double progress, double amountToComplite) {
+	public static String getProgressString(double progress, double amountToComplete) {
 		String progressString;
 		
-		if(Double.isInfinite(progress))
+		if(Double.isInfinite(progress) || (progress <= 0))
 			return PiggyBankApplication.getContext().getString(R.string.estimation_time_unable_to_compute);
 		
 		double theProgress = progress/60.0;
 		
-		if(amountToComplite == 0.0)
+		if(amountToComplete == 0.0)
 			progressString = PiggyBankApplication.getContext().getString(R.string.estimation_time_complete);
 		else if(theProgress < 1)
 			progressString = String.format("%s.", PiggyBankApplication.getContext().getString(R.string.estimation_time_soon));
