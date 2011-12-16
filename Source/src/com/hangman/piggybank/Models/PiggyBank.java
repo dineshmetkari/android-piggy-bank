@@ -105,6 +105,27 @@ public class PiggyBank extends SQLiteOpenHelper {
         db.close();
 	}
 	
+
+	/**
+	 * Compute progress for specified date.
+	 * @param dateString String with last progress updation date.
+	 * @param firstDateString String with first progress changing date.
+	 * @param currentMoment Number of seconds from 1970 year for current moment.
+	 * @param currentProgress Progress value for dateString moment.
+	 * @param value Current amount value.
+	 * @param lastValue Amount value for dateString moment.
+	 * @return New progress value in values per second.
+	 */
+	private double computeProgress(String dateString, String firstDateString, long currentMoment, double currentProgress, 
+			double value, double lastValue) {
+		long lastChangingMoment = (new Long(dateString)).longValue();
+		long firstChangingMoment = (new Long(firstDateString)).longValue();
+		double lastPeriod = (double)(lastChangingMoment - firstChangingMoment);
+		double period = (double)(currentMoment - firstChangingMoment);
+		double progress = (currentProgress*lastPeriod + value - lastValue)/period;
+		return progress;
+	}
+	
 	/**
 	 * Set resource value (amount) for specified resource.
 	 * If id doesn't exist it created.
@@ -132,14 +153,16 @@ public class PiggyBank extends SQLiteOpenHelper {
 		}
 		else {
 			cursor.moveToFirst();
-			String dateString = cursor.getString(3);
+			/*String dateString = cursor.getString(3);
 			long lastChangingMoment = (new Long(dateString)).longValue();
 			String firstDateString = cursor.getString(4);
 			long firstChangingMoment = (new Long(firstDateString)).longValue();
 			double currentProgress = cursor.getDouble(2);
 			double lastPeriod = (double)(lastChangingMoment - firstChangingMoment);
 			double period = (double)(currentMoment - firstChangingMoment);
-			double progress = (currentProgress*lastPeriod + value - lastValue)/period;
+			double progress = (currentProgress*lastPeriod + value - lastValue)/period;*/
+			double progress = this.computeProgress(cursor.getString(3), cursor.getString(4), currentMoment, 
+					cursor.getDouble(2), value, lastValue);
 			cv.put("progress", progress);
 			
 			Log.d(TAG, String.format("New progress computed: %f", progress));
@@ -163,7 +186,7 @@ public class PiggyBank extends SQLiteOpenHelper {
 	public double getResourceProgress(int id) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.query(ResourcesTableName, 
-				new String[]{"id", "progress"}, 
+				new String[]{"id", "progress", "lastDate", "firstDate"}, 
 				String.format("id=%d", id), 
 				null, null, null, null);
 		if(cursor.getCount() == 0)
@@ -171,7 +194,12 @@ public class PiggyBank extends SQLiteOpenHelper {
 		cursor.moveToFirst();
 		double res = cursor.getDouble(1);
 		db.close();
-		return res;
+		
+		//Recount progress for current date.
+		double progress = computeProgress(cursor.getString(2), cursor.getString(3), System.currentTimeMillis()/1000, 
+				res, 0, 0);
+		
+		return progress;
 	}
 
 	/**
